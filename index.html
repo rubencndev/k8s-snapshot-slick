@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K8s Snapshot - Service Summary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+            -webkit-print-color-adjust: exact;
+        }
+
+        .container {
+            max-width: 8.5in;
+            min-height: 11in;
+            margin: 2rem auto;
+            padding: 2.5rem 3rem;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        .logo {
+            display: block;
+            margin: 0 auto 1.5rem auto;
+            width: 120px;
+            height: auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header-text {
+            text-align: center;
+        }
+
+        .logo-spacer {
+            width: 150px;
+        }
+
+        .header h1 {
+            font-size: 26px;
+            font-weight: 900;
+            color: #1a2c4e;
+            margin: 0;
+        }
+
+        .header h2 {
+            font-size: 18px;
+            font-weight: 400;
+            color: #495057;
+            margin-top: 0.5rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a2c4e;
+            border-bottom: 2px solid #3b76d4;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul.challenges-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        ul.challenges-list li::before {
+            content: '✅';
+            color: #38A169;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        ul.pillar-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        ul.pillar-list li::before {
+            font-size: 24px;
+        }
+
+        ul.pillar-list li.pillar-cost::before {
+            content: '💰';
+        }
+
+        ul.pillar-list li.pillar-security::before {
+            content: '🔐';
+        }
+
+        ul.pillar-list li.pillar-performance::before {
+            content: '🚀';
+        }
+
+        strong {
+            font-weight: 700;
+            color: #212529;
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: #e9ecef;
+            border-radius: 1rem;
+            font-size: 14px;
+            font-weight: 700;
+            margin: 0 0.25rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 1rem;
+            padding-top: 2rem;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #3b76d4;
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 1rem;
+            transition: background-color 0.2s
+        }
+
+        .cta-button:hover {
+            background-color: #2c5282;
+        }
+
+        .contact-info {
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .guarantee-box {
+            background-color: #F7FAFC;
+            border: 1px dashed #A0AEC0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .guarantee-box p {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #2D3748;
+        }
+
+        .footnote {
+            font-size: 12px;
+            color: #A0AEC0;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .confidentiality-note {
+            font-size: 12px;
+            color: #A0AEC0;
+            margin-top: 1rem;
+        }
+
+        @media print {
+            @page {
+                /* Set explicit, and smaller, page margins */
+                margin: 0.7in;
+            }
+
+            body {
+                font-size: 9.5pt;
+                /* Slightly smaller base font */
+                background-color: #ffffff;
+            }
+
+            .container {
+                padding: 0;
+                margin: 0;
+                box-shadow: none;
+                border: none;
+            }
+
+            .header {
+                margin-bottom: 1.25rem;
+                /* Trimmed */
+            }
+
+            .header h1 {
+                font-size: 28px;
+                /* Trimmed */
+                margin-bottom: 0.4rem;
+            }
+
+            .header h2 {
+                font-size: 14px;
+                /* Trimmed */
+            }
+
+            .section {
+                margin-bottom: 1.1rem;
+                /* Trimmed */
+            }
+
+            .section-title {
+                font-size: 20px;
+                /* Trimmed */
+                padding-bottom: 0.4rem;
+                margin-bottom: 0.8rem;
+            }
+
+            ul.challenges-list li,
+            ul.pillar-list li {
+                line-height: 1.35;
+                /* Trimmed */
+                margin-bottom: 0.4rem;
+                /* Trimmed */
+            }
+
+            .guarantee-box {
+                padding: 1rem;
+                margin-top: 1.1rem;
+                margin-bottom: 1.1rem;
+            }
+
+            .footer {
+                margin-top: 1.25rem;
+                padding-top: 0.75rem;
+            }
+
+            .footnote {
+                margin-top: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo_edited.png" alt="CloudNative Inc. Logo" class="logo">
+            <h1>Find the Hidden Costs & Risks in Your Kubernetes Cluster</h1>
+            <h2>The K8s Snapshot: A 1-Week, Fixed-Fee Health Check.</h2>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Are You Facing These Common Kubernetes Challenges?</h3>
+            <ul class="challenges-list">
+                <li>
+                    <span><strong>Uncontrolled Cloud Spend:</strong> Teams overspend by 20-40% every month.</span>
+                </li>
+                <li>
+                    <span><strong>Security & Compliance Anxiety:</strong> Misconfigs could sink your next audit
+                        or lead to a breach.</span>
+                </li>
+                <li>
+                    <span><strong>Production Instability:</strong> Engineers firefight instead of shipping
+                        features.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Our 3-Pillar Diagnostic Process</h3>
+            <p style="font-size: 16px; line-height: 1.6;">From kick-off on <strong>Monday</strong> to findings read-out
+                on <strong>Friday</strong>, we reveal:</p>
+            <ul class="pillar-list">
+                <li class="pillar-cost"><span><strong>Cost Efficiency:</strong> Idle nodes, over-provisioned workloads,
+                        and unused persistent volumes.</span></li>
+                <li class="pillar-security"><span><strong>Security Posture:</strong> Critical CIS misconfigurations and
+                        potential exploit paths.</span></li>
+                <li class="pillar-performance"><span><strong>Performance & Stability:</strong> Missing health probes,
+                        container crash-loops, and noisy neighbours.</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">Your Deliverable: A Prioritized Action Plan</h3>
+            <p style="font-size: 16px; line-height: 1.6;">You won't receive a raw data dump. Our deliverable is a
+                professional, executive-ready report that translates complex technical findings into a clear,
+                prioritized business case for action. We tell you what’s wrong, why it matters, and exactly how to fix
+                it.</p>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">A Simple, Fixed-Fee Engagement</h3>
+            <p style="font-size: 16px; line-height: 1.6;">The K8s Snapshot is backed by a tailored guarantee and a
+                fixed-fee with no hidden costs. <br><strong>Investment: CA $4,950</strong> (or <strong>US
+                    $3,750</strong>)</p>
+        </div>
+
+        <div class="guarantee-box">
+            <p><strong>Risk-Free Guarantee:</strong> If we don't find at least CA $10,000 in annualized savings or one
+                critical security finding<sup>*</sup>, we will refund 100% of your fee.</p>
+        </div>
+
+        <div class="footer">
+            <a href="[Link-to-your-Calendly-Booking-Page]" class="cta-button">Book a Complimentary Discovery Call</a>
+            <p class="contact-info">CloudNative Inc. | snapshot@cloudnativeinc.io | 647-963-6589</p>
+            <p class="confidentiality-note">© 2025 CloudNative Inc. — All rights reserved. Confidential for [Recipient
+                Name] only.</p>
+        </div>
+
+        <div class="footnote">
+            <p><sup>*</sup>Excludes non-actionable findings on managed services (e.g., GKE, EKS).</p>
+        </div>
+    </div>
+</body>
+
+</html>
