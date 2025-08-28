@@ -3,6 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="description"
+        content="The K8s Snapshot: a 1-week, fixed-fee health check to cut Kubernetes costs, close security gaps, and boost stability. Zero-access by default.">
+    <meta property="og:title" content="Cut Kubernetes Costs & Close Security Gaps in 1 Week • CloudNative Inc.">
+    <meta property="og:description"
+        content="A fixed-fee, 1-week Kubernetes health check. Zero-access by default. Executive-ready report with Top 5 findings, savings, and remediation steps.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://yourdomain.com/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K8s Snapshot - Service Summary</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -113,7 +122,7 @@
             color: #1a2c4e;
             border-bottom: 2px solid #3b76d4;
             padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
+            margin: 0 0 1rem;
         }
 
         ul {
@@ -242,6 +251,128 @@
             color: #2d3748;
             line-height: 1.5;
         }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .features-list li {
+            display: grid;
+            grid-template-columns: 28px 1fr;
+            align-items: start;
+            column-gap: 10px;
+            margin-bottom: .85rem;
+            line-height: 1.55;
+        }
+
+        .features-list li::before {
+            content: attr(data-icon);
+            display: inline-block;
+            width: 28px;
+            text-align: center;
+            font-size: 20px;
+            line-height: 1.2;
+            margin-top: 2px;
+        }
+
+        .features-highlight {
+            background: #f9fbff;
+            border: 1px solid #e3ebf7;
+            border-radius: 6px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .03);
+        }
+
+        /* 2-column layout on desktop */
+        @media (min-width: 900px) {
+            .features-list.two-col {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px 20px;
+            }
+
+            .features-list.two-col>li {
+                margin: 0;
+            }
+        }
+
+        .faq-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .faq-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: .6rem;
+            border-top: 1px dashed #e9ecef;
+            line-height: 1.4;
+            padding: .8rem 0;
+        }
+
+        .faq-list li:first-child {
+            border-top: 0;
+        }
+
+        .faq-list li::before {
+            content: attr(data-icon);
+            font-size: 18px;
+            flex: 0 0 22px;
+            text-align: center;
+            margin-top: 2px;
+        }
+
+        .faq-block {
+            background: #fdfdfd;
+            border: 1px solid #ececec;
+            border-radius: 6px;
+            padding: .9rem 1.25rem 1.1rem;
+            margin-top: 1.5rem;
+        }
+
+        .faq-block h3.section-title {
+            border-bottom: none;
+            margin: 0 0 .2rem;
+            padding-top: 0;
+        }
+
+        .howitworks-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .howitworks-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: .6rem;
+            margin-bottom: .6rem;
+            line-height: 1.45;
+        }
+
+        .howitworks-list li::before {
+            content: attr(data-icon);
+            flex: 0 0 22px;
+            font-size: 18px;
+            line-height: 1.2;
+            text-align: center;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 420px) {
+            .container {
+                padding: 1.75rem 1.25rem;
+            }
+
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 
@@ -302,6 +433,36 @@
         </div>
 
         <div class="section">
+            <h3 class="section-title">What You’ll Get (in Just 1 Week)</h3>
+            <div class="features-highlight">
+                <ul class="features-list two-col">
+                    <li data-icon="📄"><span><strong>Executive-ready report:</strong> PDF/HTML summary with prioritized
+                            findings and next steps.</span></li>
+                    <li data-icon="⭐"><span><strong>Top 5 issues & savings opportunities:</strong> Clear overview for
+                            decision makers.</span></li>
+                    <li data-icon="🧾"><span><strong>Technical evidence bundle:</strong> CSV/JSON data from Kubecost,
+                            Goldilocks, Kube-bench, Kube-test.</span></li>
+                    <li data-icon="🛠️"><span><strong>Remediation steps:</strong> Owner, impact, and copy-paste fixes
+                            for
+                            each key finding.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">How It Works</h3>
+            <ul class="howitworks-list">
+                <li data-icon="📅"><span><strong>Kickoff (Mon):</strong> 30-min call to confirm scope and agree on a
+                        simple collector deployment (zero-access by default).</span>
+                </li>
+                <li data-icon="⚙️"><span><strong>Analysis (Tue–Thu):</strong> Run tooling, synthesize findings, prep
+                        report.</span></li>
+                <li data-icon="📊"><span><strong>Readout (Fri):</strong> 45-min exec briefing with prioritized action
+                        plan.</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
             <h3 class="section-title">A Simple, Fixed-Fee Engagement</h3>
             <p style="font-size: 16px; line-height: 1.6;">The K8s Snapshot is backed by a tailored guarantee and a
                 fixed-fee with no hidden costs. <br><strong>Investment: CA $4,950</strong> (or <strong>US
@@ -312,13 +473,32 @@
             <p class="guarantee-head">Risk-Free Guarantee</p>
             <p class="guarantee-text">
                 If we don’t find at least <strong>CA $10,000</strong> in annualized savings or
-                <strong>one critical security finding*</strong>, we’ll refund <strong>100% of your fee</strong>.
+                <strong>one critical security finding*</strong>, we’ll refund <strong>100% of your fee</strong>. No risk
+                on results, no risk on access.
             </p>
         </div>
 
+        <div class="section">
+            <div class="faq-block">
+                <h3 class="section-title">FAQ</h3>
+                <ul class="faq-list">
+                    <li data-icon="🔒"><span><strong>What access do you need?</strong> Zero-access: your engineer runs
+                            our
+                            one-liner job, which gathers evidence and outputs a tarball.</span></li>
+                    <li data-icon="⏱️"><span><strong>Will this slow my team down?</strong> No. Your total time
+                            investment is
+                            ~2 hours across the week.</span></li>
+                    <li data-icon="❓"><span><strong>What if you don’t find anything?</strong> Our guarantee covers you:
+                            we
+                            refund 100% of your fee if we don’t uncover at least CA $10,000 in savings or one critical
+                            security gap.</span></li>
+                </ul>
+            </div>
+        </div>
+
         <div class="footer">
-            <a href="https://calendly.com/rubenpanussyants/30min" class="cta-button">Book a Complimentary Discovery
-                Call</a>
+            <a href="https://calendly.com/rubenpanussyants/30min" target="_blank" rel="noopener noreferrer"
+                class="cta-button">Book a 15-min Discovery Call</a>
             <p class="contact-info">CloudNative Inc. | <a
                     href="mailto:snapshot@cloudnativeinc.io">snapshot@cloudnativeinc.io</a> | 647-963-6589</p>
             <p class="confidentiality-note">© 2025 CloudNative Inc.—All rights reserved.</p>
