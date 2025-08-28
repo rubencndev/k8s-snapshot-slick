@@ -51,17 +51,56 @@
         }
 
         .header h1 {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 900;
             color: #1a2c4e;
-            margin: 0;
+            margin: 0 0 .3rem 0;
+            letter-spacing: .2px;
         }
 
         .header h2 {
-            font-size: 18px;
-            font-weight: 400;
-            color: #495057;
-            margin-top: 0.5rem;
+            font-size: 16px;
+            font-weight: 500;
+            color: #5a6472;
+            margin: 0 0 1rem 0;
+        }
+
+        .cred-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem .6rem;
+            justify-content: center;
+            margin-top: .25rem;
+        }
+
+        .cred-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 999px;
+            padding: .35rem .75rem;
+            white-space: nowrap;
+            border: 1px solid transparent;
+        }
+
+        .cred-blue {
+            background: #eef4ff;
+            color: #1a2c4e;
+            border-color: #3b76d4;
+        }
+
+        .cred-gold {
+            background: #FFFBEA;
+            color: #7B341E;
+            border-color: #F6AD55;
+        }
+
+        .cred-green {
+            background: #e6f6ed;
+            color: #22543d;
+            border-color: #38A169;
         }
 
         .section {
@@ -167,23 +206,6 @@
             color: #6c757d;
         }
 
-        .guarantee-box {
-            background-color: #F7FAFC;
-            border: 1px dashed #A0AEC0;
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .guarantee-box p {
-            margin: 0;
-            font-size: 16px;
-            font-weight: 600;
-            color: #2D3748;
-        }
-
         .footnote {
             font-size: 12px;
             color: #A0AEC0;
@@ -197,87 +219,28 @@
             margin-top: 1rem;
         }
 
-        @media print {
-            @page {
-                /* Set explicit, and smaller, page margins */
-                margin: 0.7in;
-            }
+        .guarantee-box {
+            background: #f8fbff;
+            border: 1px solid #d0e2ff;
+            border-left: 5px solid #3b76d4;
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
+        }
 
-            body {
-                font-size: 9.5pt;
-                /* Slightly smaller base font */
-                background-color: #ffffff;
-            }
+        .guarantee-head {
+            font-weight: 800;
+            font-size: 15px;
+            color: #1a2c4e;
+            margin: 0 0 .3rem 0;
+        }
 
-            .container {
-                padding: 0;
-                margin: 0;
-                box-shadow: none;
-                border: none;
-            }
-
-            .header {
-                margin-bottom: 1.25rem;
-                /* Trimmed */
-            }
-
-            .header h1 {
-                font-size: 28px;
-                /* Trimmed */
-                margin-bottom: 0.4rem;
-            }
-
-            .header h2 {
-                font-size: 14px;
-                /* Trimmed */
-            }
-
-            .section {
-                margin-bottom: 1.1rem;
-                /* Trimmed */
-            }
-
-            .section-title {
-                font-size: 20px;
-                /* Trimmed */
-                padding-bottom: 0.4rem;
-                margin-bottom: 0.8rem;
-            }
-
-            ul.challenges-list li,
-            ul.pillar-list li {
-                line-height: 1.35;
-                /* Trimmed */
-                margin-bottom: 0.4rem;
-                /* Trimmed */
-            }
-
-            .guarantee-box {
-                padding: 1rem;
-                margin-top: 1.1rem;
-                margin-bottom: 1.1rem;
-            }
-
-            .footer {
-                margin-top: 1.25rem;
-                padding-top: 0.75rem;
-            }
-
-            .footnote {
-                margin-top: 1.25rem;
-            }
-
-            .contact-info a {
-                color: inherit;
-                /* Makes the link the same color as the surrounding text */
-                text-decoration: none;
-                /* Optional: Removes the underline */
-            }
-
-            .contact-info a:hover {
-                text-decoration: underline;
-                /* Optional: Adds an underline when a user hovers over it */
-            }
+        .guarantee-text {
+            margin: 0;
+            font-size: 14.5px;
+            color: #2d3748;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -286,36 +249,29 @@
     <div class="container">
         <div class="header">
             <img src="logo_edited.png" alt="CloudNative Inc. Logo" class="logo">
-            <h1>Cut Kubernetes Costs and Close Security Gaps in Just 1 Week</h1>
+            <h1>Cut Kubernetes Costs & Close Security Gaps in 1 Week</h1>
             <h2>The K8s Snapshot: A 1-Week, Fixed-Fee Health Check.</h2>
-        </div>
-
-        <div class="section">
-            <h3 class="section-title">Why Us?</h3>
-            <ul class="challenges-list">
-                <li>
-                    <span>Trusted by SMEs running on AWS, GCP, and Azure.</span>
-                </li>
-                <li>
-                    <span>Backed by 10+ years of Kubernetes platform expertise.</span>
-                </li>
-                <li>
-                    <span>Built by a former Red Hat and enterprise Kubernetes consultant.</span>
-                </li>
-            </ul>
+            <div class="cred-row">
+                <span class="cred-badge cred-blue">8+ yrs K8s Platform Experience</span>
+                <span class="cred-badge cred-gold">Ex-Red Hat & K8s Consultant</span>
+                <span class="cred-badge cred-green">Trusted by SMEs on AWS, GCP, Azure</span>
+            </div>
         </div>
 
         <div class="section">
             <h3 class="section-title">Are You Facing These Common Kubernetes Challenges?</h3>
             <ul class="challenges-list">
                 <li>
-                    <span><strong>Uncontrolled Cloud Spend:</strong> Your cloud bill is growing unpredictably, with little visibility into what's actually driving the cost.</span>
+                    <span><strong>Uncontrolled Cloud Spend:</strong> Your cloud bill is growing unpredictably, with
+                        little visibility into what's actually driving the cost.</span>
                 </li>
                 <li>
-                    <span><strong>Security & Compliance Anxiety:</strong> You're concerned that a hidden misconfiguration could lead to a security breach or a failed compliance audit.</span>
+                    <span><strong>Security & Compliance Anxiety:</strong> You're concerned that a hidden
+                        misconfiguration could lead to a security breach or a failed compliance audit.</span>
                 </li>
                 <li>
-                    <span><strong>Production Instability:</strong> Your engineering team is spending more time firefighting and dealing with instability than shipping new features.</span>
+                    <span><strong>Production Instability:</strong> Your engineering team is spending more time
+                        firefighting and dealing with instability than shipping new features.</span>
                 </li>
             </ul>
         </div>
@@ -325,9 +281,15 @@
             <p style="font-size: 16px; line-height: 1.6;">From kick-off on <strong>Monday</strong> to findings read-out
                 on <strong>Friday</strong>, we reveal:</p>
             <ul class="pillar-list">
-                <li class="pillar-cost"><span><strong>A Clear Path to Savings:</strong> We analyze your cluster's resource utilization to identify idle assets and over-provisioned workloads, delivering immediate savings opportunities.</span></li>
-                <li class="pillar-security"><span><strong>A Roadmap to Better Security:</strong> We audit your cluster against the industry-standard CIS Benchmark to find and prioritize your most critical configuration gaps.</span></li>
-                <li class="pillar-performance"><span><strong>A Blueprint for Stability:</strong> We identify the root causes of instability, like resource bottlenecks and missing health probes, through workload rightsizing analysis.</span></li>
+                <li class="pillar-cost"><span><strong>A Clear Path to Savings:</strong> We analyze your cluster's
+                        resource utilization to identify idle assets and over-provisioned workloads, delivering
+                        immediate savings opportunities.</span></li>
+                <li class="pillar-security"><span><strong>A Roadmap to Better Security:</strong> We audit your cluster
+                        against the industry-standard CIS Benchmark to find and prioritize your most critical
+                        configuration gaps.</span></li>
+                <li class="pillar-performance"><span><strong>A Blueprint for Stability:</strong> We identify the root
+                        causes of instability, like resource bottlenecks and missing health probes, through workload
+                        rightsizing analysis.</span></li>
             </ul>
         </div>
 
@@ -347,8 +309,11 @@
         </div>
 
         <div class="guarantee-box">
-            <p><strong>Risk-Free Guarantee:</strong> If we don't find at least CA $10,000 in annualized savings or one
-                critical security finding<sup>*</sup>, we will refund 100% of your fee.</p>
+            <p class="guarantee-head">Risk-Free Guarantee</p>
+            <p class="guarantee-text">
+                If we don’t find at least <strong>CA $10,000</strong> in annualized savings or
+                <strong>one critical security finding*</strong>, we’ll refund <strong>100% of your fee</strong>.
+            </p>
         </div>
 
         <div class="footer">
